@@ -14,16 +14,6 @@ def registerScalaUDF(
     fully_qualified_class_name: str,
     registry_object_name: Optional[str] = REGISTRY_OBJECT_NAME,
 ):
-    """
-    Register a Scala UDF under udf_name by calling the register_method_name on the class_path.
-
-    Args:
-        spark (SparkSession): The Spark session to use.
-        udf_name (str): The name of the UDF to register.
-        fully_qualified_class_name (str): The fully qualified class name of the Scala UDF.
-        registry_object_name (Optional[str]): The name of the registry object to use, defaults to REGISTRY_OBJECT_NAME.
-                                              This should exist on the same class path as the UDF.
-    """
     base_package = ".".join(fully_qualified_class_name.split(".")[:-1])
     helper_object_class_path = f"{base_package}.{registry_object_name}"
 
